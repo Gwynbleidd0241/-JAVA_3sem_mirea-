@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<h1>Добро пожаловать, <span th:text="${username}">Пользователь</span></h1>
+
+<h2>Поиск</h2>
+<form th:action="@{/home}" method="post">
+    <input type="hidden" name="formType" value="search" />
+    <label>Ключевое слово:</label>
+    <input type="text" name="query" required />
+    <button type="submit">Поиск</button>
+</form>
+
+<h3 th:if="${query}">Результаты поиска для: <span th:text="${query}"></span></h3>
+<ul th:if="${results != null}">
+    <li th:each="result : ${results}">
+        <strong>Название:</strong> <span th:text="${result.title}"></span><br/>
+        <strong>Режиссер:</strong> <span th:text="${result.director}"></span><br/>
+        <strong>Год выпуска:</strong> <span th:text="${result.releaseYear}"></span>
+    </li>
+</ul>
+
+</body>
+</html>
