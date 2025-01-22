@@ -737,24 +737,495 @@ import java.util.Scanner;
 // ---------------------------------------------------------------
 //public class Main {
 //    public static void main(String[] args) {
-//        // Создание окна
-//        JFrame frame = new JFrame("Простое GUI"); // Заголовок окна
-//        frame.setSize(300, 200); // Размер окна
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Закрытие окна завершает программу
-//        frame.setLayout(new FlowLayout()); // Компоновка элементов
+//        JFrame frame = new JFrame("Простое GUI");
+//        frame.setSize(300, 200);
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.setLayout(new FlowLayout());
 //
-//        // Добавление метки
 //        JLabel label = new JLabel("Нажмите кнопку");
 //        frame.add(label);
 //
-//        // Создание кнопки
 //        JButton button = new JButton("Нажми меня");
 //        frame.add(button);
 //
-//        // Обработка нажатия на кнопку
 //        button.addActionListener(e -> label.setText("Кнопка нажата!"));
 //
-//        // Отображение окна
 //        frame.setVisible(true);
 //    }
 //}
+// ---------------------------------------------------------------
+//public class Main {
+//    public static void main(String[] args) {
+//        JFrame frame = new JFrame("Пример JPanel");
+//        frame.setSize(400, 200);
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.setLayout(new BorderLayout());
+//
+//        JPanel panel = new JPanel();
+//        panel.setLayout(new FlowLayout());
+//
+//        panel.add(new JButton("Кнопка 1"));
+//        panel.add(new JButton("Кнопка 2"));
+//        panel.add(new JButton("Кнопка 3"));
+//
+//        frame.add(panel, BorderLayout.CENTER);
+//        frame.setVisible(true);
+//    }
+//}
+// ---------------------------------------------------------------
+//public class Main {
+//    public static void main(String[] args) {
+//        JFrame frame = new JFrame();
+//        frame.setSize(200, 400);
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//
+//        JButton button = new JButton("Load");
+//        JLabel label = new JLabel("Wait...");
+//
+//        button.addActionListener(e -> label.setText("Кнопка нажата"));
+//        frame.setLayout(new FlowLayout());
+//        frame.add(button);
+//        frame.add(label);
+//        frame.setVisible(true);
+//    }
+//}
+// ---------------------------------------------------------------
+//class Box <T> {
+//    private T value;
+//    public Box(T value) {
+//        this.value = value;
+//    }
+//
+//    public T getValue() {
+//        return value;
+//    }
+//}
+//
+//public class Main {
+//    public static void main(String[] args) {
+//        Box <String> box = new Box<>("Hello");
+//        String s = box.getValue();
+//    }
+//}
+// ---------------------------------------------------------------
+//public class Main {
+//    public static void main(String[] args) {
+//        ArrayList<String> list = new ArrayList<>();
+//        list.add("Hello");
+//        System.out.println(list);
+//
+//        HashMap<Integer, String> map = new HashMap<>();
+//        map.put(1, "ser");
+//        System.out.println(map);
+//
+//        HashSet<String> set = new HashSet<>();
+//        set.add("Hello");
+//        System.out.println(set);
+//    }
+//}
+// ---------------------------------------------------------------
+// Задача с билета про кости
+//class DiceGame {
+//    private Random random = new Random();
+//
+//    public int rollDice(){
+//        return random.nextInt(6) + 1 + random.nextInt(6) + 1;
+//    }
+//
+//    public void playGame(String[] players){
+//        String winner = "";
+//        int highestScore = 0;
+//
+//
+//        for(String player : players){
+//            int score = rollDice();
+//            System.out.println(player + " выбросил " + score);
+//
+//            if(score > highestScore){
+//                winner = player;
+//                highestScore = score;
+//            }
+//        }
+//
+//        System.out.println("Победитель: " + winner + " с результатом " + highestScore);
+//    }
+//}
+//
+//public class Main {
+//    public static void main(String[] args) {
+//        String[] players = {"Alice", "Dima", "Sasha"};
+//        DiceGame game = new DiceGame();
+//        game.playGame(players);
+//    }
+//}
+// ---------------------------------------------------------------
+// Билет №1
+//class ReverseProcessor {
+//    public void processInput(InputStream inputStream, OutputStream outputStream) {
+//        Scanner scanner = new Scanner(inputStream);
+//        List<String> lines = new ArrayList<>();
+//
+//        while (scanner.hasNextLine()) {
+//            String line = scanner.nextLine();
+//            if (line.isEmpty()) {
+//                break;
+//            }
+//            lines.add(line);
+//        }
+//
+//        scanner.close();
+//
+//        List<String> reversedLines = new ArrayList<>();
+//        for(String line : lines) {
+//            reversedLines.add(new StringBuilder(line).reverse().toString());
+//        }
+//
+//        Collections.reverse(reversedLines);
+//
+//        for(String line : reversedLines) {
+//            System.out.println(line);
+//        }
+//    }
+//}
+//
+//public class Main {
+//    public static void main(String[] args) {
+//        ReverseProcessor reverseProcessor = new ReverseProcessor();
+//        reverseProcessor.processInput(System.in, System.out);
+//    }
+//}
+// ---------------------------------------------------------------
+// Билет №7
+//public class Main {
+//    public static void main(String[] args) {
+//        Scanner scanner = new Scanner(System.in);
+//        LinkedList<Integer> list = new LinkedList<>();
+//
+//        String input = scanner.nextLine();
+//        scanner.close();
+//
+//        for(String s : input.split("->")) {
+//            list.add(Integer.parseInt(s.trim()));
+//        }
+//
+//        printReverse(list, list.size() - 1);
+//    }
+//
+//    public static void printReverse(List<Integer> list, int index) {
+//        if (index < 0) return;
+//
+//        System.out.print(list.get(index));
+//        if(index > 0) {
+//            System.out.print(" -> ");
+//        }
+//
+//        printReverse(list, index - 1);
+//    }
+//}
+// ---------------------------------------------------------------
+//public class Main{
+//    public static void main(String[] args){
+//        Scanner scanner = new Scanner(System.in);
+//        int totalWordCount = 0;
+//
+//        while(true){
+//            String line = scanner.nextLine().trim();
+//
+//            if(line.isEmpty()) break;
+//
+//            String[] words = line.split("[\\s\\p{Punct}]+");
+//
+//            int wordCount = 0;
+//            for(String word : words){
+//                if(!word.isEmpty()){
+//                    wordCount++;
+//                }
+//            }
+//
+//            totalWordCount += wordCount;
+//        }
+//        scanner.close();
+//        System.out.println("Общее количество слов: " + totalWordCount);
+//    }
+//}
+// ---------------------------------------------------------------
+//class Product{
+//    private String name;
+//    private double price;
+//    private int grade;
+//
+//    public Product(String name, double price, int grade){
+//        this.name = name;
+//        this.price = price;
+//        this.grade = grade;
+//    }
+//
+//    public String getName(){
+//        return name;
+//    }
+//
+//    public int getGrade() {
+//        return grade;
+//    }
+//
+//    public double getPrice() {
+//        return price;
+//    }
+//}
+//
+//public class Main {
+//    public static void main(String[] args) {
+//        List<Product> products = new ArrayList<>();
+//        products.add(new Product("Самый высокий телевизор", 500.0, 1));
+//        products.add(new Product("Самый высокий шкаф", 700.5, 2));
+//        products.add(new Product("Обычный стол", 300.0, 2));
+//        products.add(new Product("Самый высокий стол", 450.0, 3));
+//        products.add(new Product("Самый высокий компьютер", 1000.0, 1));
+//
+//        double maxPrice = 0;
+//        Product maxProduct = null;
+//
+//        for(Product product : products){
+//            if ((product.getGrade() == 1 || product.getGrade() == 2) &&
+//                    product.getName().toLowerCase().contains("самый высокий")) {
+//                if(product.getPrice() > maxPrice){
+//                    maxPrice = product.getPrice();
+//                    maxProduct = product;
+//                }
+//            }
+//        }
+//
+//        if(maxProduct != null){
+//            System.out.println("Самый дорогой товар: " + maxProduct.getName());
+//            System.out.println("Цена: " + maxPrice);
+//        } else {
+//            System.out.println("Подходящих товаров не найдено.");
+//        }
+//    }
+//}
+// ---------------------------------------------------------------
+//abstract class Employee {
+//    protected String name;
+//    protected double salary;
+//
+//    public Employee(String name, double salary) {
+//        this.name = name;
+//        this.salary = salary;
+//    }
+//
+//    public abstract double calculeteBonus();
+//}
+//
+//interface Reportable {
+//    void generateReport();
+//}
+//
+//class Manager extends Employee implements Reportable {
+//    private int completedProjects;
+//
+//    public Manager(String name, double salary, int completedProjects) {
+//        super(name, salary);
+//        this.completedProjects = completedProjects;
+//    }
+//
+//    @Override
+//    public double calculeteBonus() {
+//        return 100 * completedProjects;
+//    }
+//
+//    @Override
+//    public void generateReport() {
+//        System.out.println("Отчёт для менеджера: " + name);
+//        System.out.println("Базовая зарплата: " + salary);
+//        System.out.println("Общий бонус: " + calculeteBonus());
+//        System.out.println("Итоговая зарплата: " + (salary + calculeteBonus()));
+//    }
+//}
+//
+//class Developer extends Employee {
+//    private int linesOfCode;
+//
+//    public Developer(String name, double salary, int linesOfCode) {
+//        super(name, salary);
+//        this.linesOfCode = linesOfCode;
+//    }
+//
+//    @Override
+//    public double calculeteBonus() {
+//        return (linesOfCode / 1000) * 0.5;
+//    }
+//
+//    public void printDeveloperInfo() {
+//        System.out.println("Разработчик: " + name);
+//        System.out.println("Базовая зарплата: " + salary);
+//        System.out.println("Количество написанных строк кода: " + linesOfCode);
+//        System.out.println("Общий бонус: " + calculeteBonus());
+//        System.out.println("Итоговая зарплата: " + (salary + calculeteBonus()));
+//    }
+//}
+//
+//public class Main {
+//    public static void main(String[] args) {
+//        Manager manager = new Manager("Manager", 1000, 1);
+//        manager.generateReport();
+//
+//        System.out.println();
+//
+//        Developer developer = new Developer("Developer", 1000, 1);
+//        developer.printDeveloperInfo();
+//    }
+//}
+// ---------------------------------------------------------------
+// Функциональное программирование
+//public class Main {
+//    public static void main(String[] args) {
+//        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+//
+//        int sumOfSquares= numbers.stream()
+//                .map(num -> num * num)
+//                .reduce(0, Integer::sum);
+//        System.out.println(sumOfSquares);
+//    }
+//}
+// ---------------------------------------------------------------
+// билет 35
+//import java.util.Stack;
+//import java.util.LinkedList;
+//import java.util.Queue;
+//
+//public class Main {
+//    public static void splitStack(Stack<Integer> stack) {
+//        Queue<Integer> queue = new LinkedList<>();
+//
+//        while (!stack.isEmpty()) {
+//            queue.add(stack.pop());
+//        }
+//
+//        for (int num : queue) {
+//            if (num < 0) {
+//                stack.push(num);
+//            }
+//        }
+//
+//        for (int num : queue) {
+//            if (num >= 0) {
+//                stack.push(num);
+//            }
+//        }
+//    }
+//
+//    public static void main(String[] args) {
+//        Stack<Integer> stack = new Stack<>();
+//        stack.push(3);
+//        stack.push(-1);
+//        stack.push(4);
+//        stack.push(-5);
+//        stack.push(2);
+//        stack.push(-6);
+//
+//        splitStack(stack);
+//
+//        while (!stack.isEmpty()) {
+//            System.out.println(stack.pop());
+//        }
+//    }
+//}
+// ---------------------------------------------------------------
+// билет 23
+//public class Main {
+//    public static boolean isPowerOfTwo(int n) {
+//        if (n == 1) {
+//            return true;
+//        }
+//        if (n % 2 != 0 || n < 1) {
+//            return false;
+//        }
+//        return isPowerOfTwo(n / 2);
+//    }
+//
+//    public static void main(String[] args) {
+//        Scanner scanner = new Scanner(System.in);
+//        int N = scanner.nextInt();
+//        if (isPowerOfTwo(N)) {
+//            System.out.println("yes");
+//        } else {
+//            System.out.println("no");
+//        }
+//        scanner.close();
+//    }
+//}
+// ---------------------------------------------------------------
+// билет 5
+//public class Main {
+//    public static String normalizePath(String path) {
+//        String[] parts = path.split("/");
+//        Deque<String> stack = new ArrayDeque<>();
+//
+//        for (String part : parts) {
+//            if (part.equals("..")) {
+//                if (!stack.isEmpty()) {
+//                    stack.pop();
+//                } else {
+//                    stack.push("..");
+//                }
+//            } else if (!part.isEmpty() && !part.equals(".")) {
+//                stack.push(part);
+//            }
+//        }
+//
+//        List<String> normalizedParts = new ArrayList<>(stack);
+//        Collections.reverse(normalizedParts);
+//        return String.join("/", normalizedParts);
+//    }
+//
+//    public static void main(String[] args) {
+//        String path = "MIREA/JAVA_5_2/src/./../../task_ 5_1/../../../course/prog";
+//        System.out.println(normalizePath(path));
+//    }
+//}
+// ---------------------------------------------------------------
+// Билет 17
+// class Atlethe {
+//     private String name;
+//     private int t;
+
+//     public Atlethe(String name, int t) {
+//         this.name = name;
+//         this.t = t;
+//     }
+
+//     public String getName() {
+//         return name;
+//     }
+
+//     public int getT() {
+//         return t;
+//     }
+// }
+
+// public class Main {
+//     public static void main(String[] args) {
+//         List<Atlethe> atlethe = new ArrayList<Atlethe>();
+//         atlethe.add(new Atlethe("Eлена", 330));
+//         atlethe.add(new Atlethe("Павел", 265));
+//         atlethe.add(new Atlethe("Иван", 285));
+//         atlethe.add(new Atlethe("Катя", 320));
+//         atlethe.add(new Atlethe("Филипп", 440));
+//         atlethe.add(new Atlethe("Матвей", 395));
+
+
+//         int minT = 5000;
+//         Atlethe minAtlethe = null;
+
+//         for(Atlethe atlethe2 : atlethe) {
+//             if(atlethe2.getT() < minT) {
+//                 minT = atlethe2.getT();
+//                 minAtlethe = atlethe2;
+//             }
+//         }
+
+//         if(minAtlethe != null) {
+//             System.out.println("Самый быстрый в марафоне -> " + minAtlethe.getName() + " co временем " + minAtlethe.getT()/60 +  " часа и " + minAtlethe.getT() % 60 + " минут");
+//         }
+//     }
+// }
